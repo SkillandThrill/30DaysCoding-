@@ -32,19 +32,13 @@
 
 
 // Types of Functions.....
-
+// Normal funtion
 let sum = function(a, b) {
-
     return a + b;
-
 }
-
-
 console.log(sum(3, 5))
 
-
+// Arrow Function
 
 let summ = (a, b) => a + b;
-
-
 console.log(sum(3, 5))
