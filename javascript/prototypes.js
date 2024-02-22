@@ -13,20 +13,40 @@ obj1.__proto__ = obj2;
 console.log(obj1.lName)
 */
 
+
+
+
+
+
 // Explanation of prototypes
 function Person(name, age) {
-    let person = Object.create(obj)
-    person.name = name;
-    person.age = age;
-    return person
+    this.name = name;
+    this.age = age;
 }
-var obj = {
+
+Person.prototype.greet = function() {
+    console.log(`Hello ${this.name}`)
+}
+
+
+let user = new Person("John", 9)
+
+user.greet()
+console.log(user)
+
+
+//classes in JS
+
+class Personn {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
     greet() {
         console.log(`Hello ${this.name}`)
     }
 }
 
-let user = Person("John", 9)
-
-user.greet()
-console.log()
+let user2 = new Personn("Smith", 10)
+user2.greet()
+console.log(user)
