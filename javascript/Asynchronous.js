@@ -29,42 +29,74 @@
 
 // Call Back Hell 
 
-function loadingData(callback) {
-    setTimeout(() => {
-        console.log("1. Loading Data...")
-        callback();
-    }, 2000);
+function loadingData() {
+    return new Promise((resolve, reject) => {
+        console.log("Processing ... ")
+
+        setTimeout(() => {
+            console.log("1. Loading Data...")
+            resolve();
+        }, 2000);
+    })
 }
 
-function CollectingData(callback) {
-    setTimeout(() => {
-        console.log("2. Collecting Data...")
-        callback();
+function CollectingData() {
+    return new Promise((resolve, reject) => {
 
-    }, 2000);
+        setTimeout(() => {
+            console.log("2. Collecting Data...")
+            resolve();
+        }, 2000);
+    })
 }
 
-function approvingData(callback) {
-    setTimeout(() => {
-        console.log("3. Approving  Data...")
-        callback();
-    }, 2000);
+function approvingData() {
+    return new Promise((resolve, reject) => {
+        -
+        setTimeout(() => {
+            console.log("3. Approving  Data...")
+            resolve();
+        }, 2000);
+    })
 }
 
 function approved() {
-    setTimeout(() => {
-        console.log("4. Approved Data...")
-    }, 2000);
+    return new Promise((resolve, reject) => {
+
+        setTimeout(() => {
+            console.log("4. Approved Data...")
+            resolve();
+        }, 2000);
+    })
 }
 
-loadingData(function() {
+// loadingData(function() {
 
-    CollectingData(function() {
+//     CollectingData(function() {
 
-        approvingData(function() {
-            approved()
-        })
+//         approvingData(function() {
+//             approved()
+//         })
 
-    })
+//     })
 
-})
+// })
+
+// Promise Data..
+// loadingData().then(CollectingData).then(approvingData).then(approved).catch((err) => {
+//     console.log(err)
+// })
+
+
+//Async Await
+
+async function Ex() {
+    await loadingData();
+    await CollectingData()
+    await approvingData();
+    await approved();
+}
+
+Ex().catch((err) => {
+    console.log(err);
+});
