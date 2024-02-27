@@ -1,6 +1,6 @@
-fetch('my_file.txt')
+fetch('https://jsonplaceholder.typicode.com/todos/1')
     .then(Response => {
-        return Response.text()
+        return Response.json()
     })
 
 .then(data => console.log(data))
