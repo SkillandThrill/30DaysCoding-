@@ -25,6 +25,9 @@ class TaskManager {
     }
 }
 
+
+
+
 const taskManager = new TaskManager();
 
 function renderTasks() {
@@ -43,6 +46,8 @@ function renderTasks() {
     });
 }
 
+
+
 function addTask(event) {
     event.preventDefault();
     const taskInput = document.getElementById('task-input');
@@ -54,15 +59,20 @@ function addTask(event) {
     }
 }
 
+
+
+
 function deleteTask(taskId) {
     taskManager.deleteTask(taskId);
     renderTasks();
 }
 
+
 function toggleTaskCompletion(taskId) {
     taskManager.toggleTaskCompletion(taskId);
     renderTasks();
 }
+
 
 const taskForm = document.getElementById('task-form');
 taskForm.addEventListener('submit', addTask);
